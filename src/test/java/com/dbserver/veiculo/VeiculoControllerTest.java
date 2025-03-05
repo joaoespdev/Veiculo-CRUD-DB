@@ -36,6 +36,7 @@ class VeiculoControllerTest {
         CarroDTO dto = new CarroDTO();
         dto.setTipo("Carro");
         dto.setMarca("Toyota");
+        dto.setModelo("Corolla"); // Adicionando o campo modelo
         dto.setNumeroPortas(4);
 
         when(veiculoService.save(any())).thenReturn(dto);
