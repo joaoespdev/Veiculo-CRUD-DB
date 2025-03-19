@@ -4,7 +4,6 @@ import com.dbserver.veiculo.controller.VeiculoController;
 import com.dbserver.veiculo.dto.CaminhaoDTO;
 import com.dbserver.veiculo.dto.CarroDTO;
 import com.dbserver.veiculo.dto.MotoDTO;
-import com.dbserver.veiculo.dto.VeiculoDTO;
 import com.dbserver.veiculo.exception.VeiculoNotFoundException;
 import com.dbserver.veiculo.service.VeiculoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,7 +15,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
