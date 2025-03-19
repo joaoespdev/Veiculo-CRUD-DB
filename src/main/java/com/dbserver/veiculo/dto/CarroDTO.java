@@ -3,11 +3,8 @@ package com.dbserver.veiculo.dto;
 import com.dbserver.veiculo.model.Carro;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
 public class CarroDTO extends VeiculoDTO {
 
     @NotNull(message = "O campo 'numeroPortas' não pode ser nulo.")

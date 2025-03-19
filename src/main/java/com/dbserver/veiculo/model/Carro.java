@@ -2,12 +2,10 @@ package com.dbserver.veiculo.model;
 
 import jakarta.persistence.Entity;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
 @Entity
 public class Carro extends Veiculo {
 

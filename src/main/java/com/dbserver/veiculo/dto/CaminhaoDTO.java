@@ -3,10 +3,9 @@ package com.dbserver.veiculo.dto;
 import com.dbserver.veiculo.model.Caminhao;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+
 
 @Data
-@EqualsAndHashCode(callSuper = true)
 public class CaminhaoDTO extends VeiculoDTO {
 
     @NotNull(message = "O campo 'capacidadeCarga' não pode ser nulo.")

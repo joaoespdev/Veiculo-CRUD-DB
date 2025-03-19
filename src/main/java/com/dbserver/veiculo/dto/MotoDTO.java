@@ -3,10 +3,8 @@ package com.dbserver.veiculo.dto;
 import com.dbserver.veiculo.model.Moto;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
 public class MotoDTO extends VeiculoDTO {
 
     @NotNull(message = "O campo 'temPartidaEletrica' não pode ser nulo.")
