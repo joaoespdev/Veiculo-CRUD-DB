@@ -194,26 +194,32 @@ Exemplo de teste de controlador no `VeiculoControllerTest.java`:
 ```java
 @WebMvcTest(VeiculoController.class)
 class VeiculoControllerTest {
-    
-    @Autowired
-    private MockMvc mockMvc;
 
     @Autowired
-    private ObjectMapper objectMapper;
+    private MockMvc mockMvc;
 
     @MockBean
     private VeiculoService veiculoService;
 
-    @Test
-    void deveRetornarNotFoundQuandoVeiculoNaoExiste() throws Exception {
-        Long veiculoId = 1L;
-        when(veiculoService.buscarVeiculoPorId(veiculoId)).thenThrow(new VeiculoNotFoundException(veiculoId));
+    @Autowired
+    private ObjectMapper objectMapper;
 
-        mockMvc.perform(get("/veiculos/" + veiculoId))
-                .andExpect(status().isNotFound())
-                .andExpect(content().string("Veículo com ID 1 não encontrado."));
+    @Test
+    void deveCriarVeiculo() throws Exception {
+        CarroDTO dto = new CarroDTO();
+        dto.setTipo("Carro");
+        dto.setMarca("Toyota");
+        dto.setModelo("Corolla");
+        dto.setNumeroPortas(4);
+        dto.setAnoFabricacao(2005);
+
+        when(veiculoService.save(any())).thenReturn(dto);
+
+        mockMvc.perform(post("/veiculos")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(dto)))
+                .andExpect(status().isCreated());
     }
-}
 ```
 
 ---
@@ -353,7 +359,7 @@ Isso conclui a explicação sobre os testes, DTOs e exceções na API Veículo.
    mvn spring-boot:run
    ```
 
-4. A API estará disponível em `http://localhost:8080/veiculos`.
+4. API disponível em `http://localhost:8080/veiculos`.
 
    ```sh
    Ou acessando o banco de dados H2:
@@ -362,5 +368,10 @@ Isso conclui a explicação sobre os testes, DTOs e exceções na API Veículo.
    usuário: sa
    senha:
    ```
+   
+5. Interação com a API:
 
+   ```sh
+   Faça requisições em: http://localhost:8080/swagger-ui.html
+   ```
 
